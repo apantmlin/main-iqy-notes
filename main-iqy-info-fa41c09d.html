@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱奇艺体育 – 你的赛事观看助手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.7;
+            color: #2c2e33;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e7e9ed;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1e2024;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5b5f67;
+            line-height: 1.6;
+            border-left: 4px solid #e0b044;
+            padding-left: 1rem;
+            margin: 1.2rem 0 0.3rem;
+        }
+
+        .hero .meta {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #8b8f96;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e2e5ea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 590;
+            margin-bottom: 1rem;
+            color: #1f2229;
+            letter-spacing: -0.01em;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #f0f1f3;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #f9fafc;
+            border-left: 4px solid #d6b35c;
+            padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.6rem 0 1rem;
+            font-size: 0.96rem;
+            line-height: 1.7;
+            color: #383c44;
+        }
+
+        .highlight strong {
+            color: #1b1e24;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-item {
+            padding: 0.3rem 0;
+        }
+
+        .faq-item .q {
+            font-weight: 540;
+            color: #1d2027;
+            margin-bottom: 0.2rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-item .a {
+            color: #5b5f69;
+            font-size: 0.92rem;
+        }
+
+        .visit-tip {
+            background: #eceef2;
+            border-radius: 40px;
+            padding: 1rem 1.6rem;
+            text-align: center;
+            font-size: 1rem;
+            margin: 2rem 0 1.2rem;
+            border: 1px solid #d9dce2;
+            color: #2c2e36;
+            line-height: 1.6;
+        }
+
+        .visit-tip a {
+            color: #1e2b3a;
+            font-weight: 540;
+            text-decoration: none;
+            border-bottom: 1.5px solid #b6bcc7;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .visit-tip a:hover {
+            border-bottom-color: #1e2b3a;
+            color: #0b0f14;
+        }
+
+        .site-footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8d919a;
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid #dfe1e6;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 620px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .highlight {
+                padding: 0.8rem 1rem;
+            }
+            .visit-tip {
+                padding: 0.9rem 1rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero .meta {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>爱奇艺体育 · 观赛指南</h1>
+            <div class="sub">
+                一个聚合赛事直播、回放与资讯的内容平台 —— 帮你在各种屏幕前快速定位想看的比赛。
+            </div>
+            <div class="meta">
+                <span>📅 近期更新 · 2025</span>
+                <span>🏅 涵盖足球、篮球、网球、搏击等</span>
+            </div>
+        </div>
+
+        <!-- 正文：从识别用途切入 -->
+        <div class="card">
+            <h2>它是个什么样的网站？</h2>
+            <p>
+                打开 <a href="https://main-iqy.com" style="color:#1a1e26; font-weight:500; text-decoration:underline; text-underline-offset:3px; text-decoration-color:#bcc2cc;">爱奇艺体育</a>，你首先会看到一个相对清爽的赛事列表或热门比赛推荐。没有太多花哨的弹窗，也没有铺满屏幕的广告横幅。页面结构偏传统，左侧或者顶部通常是导航栏，核心区域留给直播卡片或赛程列表。对于只是想快速找到某场足球赛或者网球直播的人来说，这个设计还算友好。
+            </p>
+            <p>
+                如果你习惯在手机或者平板上看比赛，它的响应式布局也能将内容重新排列，不至于出现按钮太小或者文字错位的情况。整体来说，它的定位偏向「内容聚合 + 直播入口」，而不是一个社区或者论坛，所以你不会在首页看到太多用户评论或者社交动态。
+            </p>
+        </div>
+
+        <!-- 多段正文 + 引用提示 -->
+        <div class="card">
+            <h2>从使用场景看特点</h2>
+            <p>
+                平时下班回家，打开平板，点开<a href="https://main-iqy.com" style="color:#1a1e26; font-weight:500; text-decoration:underline; text-underline-offset:3px; text-decoration-color:#bcc2cc;">爱奇艺体育</a>，很自然地就能看到当晚的焦点战。不需要复杂的会员引导页，也不需要反复确认赛事时间。它把「正在直播」和「即将开始」两个模块放在比较显眼的位置，收藏的球队或者联赛如果有新赛程，也会在首页出现提醒。
+            </p>
+            <p>
+                对于偶尔想看回放或者集锦的用户，网站也提供了按日期、按联赛筛选的入口。不过说实话，回放列表的排序逻辑有时候需要适应一下 —— 默认是按更新时间，而不是按比赛实际发生时间。如果你要找几天前的某场英超，可能需要稍微翻一翻。
+            </p>
+
+            <div class="highlight">
+                <strong>💡 一个实用提示：</strong> 如果你在首页找不到某场已结束的比赛，试着用搜索框直接输入球队名或联赛关键词，比手动翻页快不少。
+            </div>
+
+            <p>
+                另外，网上偶尔有人问「这个网站和主站通用会员吗？」—— 根据现有的页面说明和实际使用体验，两者的会员体系目前是独立的，建议在购买或续费前仔细阅读相关条款。当然，页面底部通常会有客服或者帮助中心的链接，遇到具体问题可以直接咨询官方。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 + 场景延伸 -->
+        <div class="card">
+            <h2>常见疑问（摘要）</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="q">⚽ 需要下载应用吗？</div>
+                    <div class="a">网页端可以直接观看直播，无需额外安装程序。部分功能（如投屏）可能需要配合官方 App。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">🎾 免费内容多不多？</div>
+                    <div class="a">每天都有免费场次，主要是焦点战或者低热度联赛。热门赛事通常需要订阅。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">🏀 能看 NBA 回放吗？</div>
+                    <div class="a">常规赛回放一般赛后几小时上线，季后赛版权视赛季合作情况而定。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">🥊 搏击类内容在哪找？</div>
+                    <div class="a">在分类导航里选择「格斗」或「搏击」，或者直接搜索选手名字。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 访问句 + 链接自然嵌入 -->
+        <div class="visit-tip">
+            🏟️ 想快速看看今晚有什么比赛？不妨直接打开 <a href="https://main-iqy.com">爱奇艺体育</a>，从首页的「赛程」板块就能一目了然。
+        </div>
+
+        <!-- 结尾 + 简单声明 -->
+        <div class="site-footer">
+            基于实际体验整理的介绍 · 页面内容仅供了解用途参考 · 功能与版权以官方为准
+        </div>
+    </div>
+</body>
+</html>
